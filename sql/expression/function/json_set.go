@@ -21,8 +21,8 @@ import (
 
 	"github.com/tidwall/sjson"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 // JSON_SET(json_doc, path, val[, path, val] ...)

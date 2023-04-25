@@ -20,8 +20,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/plan"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/plan"
 )
 
 func TestShowStatus(t *testing.T) {

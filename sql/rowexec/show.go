@@ -20,10 +20,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/mysql_db"
-	"github.com/dolthub/go-mysql-server/sql/plan"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/mysql_db"
+	"github.com/xiazemin/go-mysql-server/sql/plan"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 func (b *BaseBuilder) buildShowCharset(ctx *sql.Context, n *plan.ShowCharset, row sql.Row) (sql.RowIter, error) {

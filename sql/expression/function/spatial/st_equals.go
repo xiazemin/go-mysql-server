@@ -17,9 +17,9 @@ package spatial
 import (
 	"fmt"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/expression"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/expression"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 // STEquals is a function that returns the STEquals of a LineString

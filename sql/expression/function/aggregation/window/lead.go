@@ -18,12 +18,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dolthub/go-mysql-server/sql/analyzer/analyzererrors"
-	"github.com/dolthub/go-mysql-server/sql/transform"
+	"github.com/xiazemin/go-mysql-server/sql/analyzer/analyzererrors"
+	"github.com/xiazemin/go-mysql-server/sql/transform"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/expression"
-	"github.com/dolthub/go-mysql-server/sql/expression/function/aggregation"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/expression"
+	"github.com/xiazemin/go-mysql-server/sql/expression/function/aggregation"
 )
 
 type Lead struct {

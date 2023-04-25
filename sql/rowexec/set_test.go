@@ -23,12 +23,12 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/src-d/go-errors.v1"
 
-	"github.com/dolthub/go-mysql-server/memory"
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/expression"
-	"github.com/dolthub/go-mysql-server/sql/plan"
-	"github.com/dolthub/go-mysql-server/sql/types"
-	"github.com/dolthub/go-mysql-server/sql/variables"
+	"github.com/xiazemin/go-mysql-server/memory"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/expression"
+	"github.com/xiazemin/go-mysql-server/sql/plan"
+	"github.com/xiazemin/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql/variables"
 )
 
 func TestSet(t *testing.T) {

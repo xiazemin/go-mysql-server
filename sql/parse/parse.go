@@ -30,15 +30,15 @@ import (
 	"go.opentelemetry.io/otel/trace"
 	"gopkg.in/src-d/go-errors.v1"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/binlogreplication"
-	"github.com/dolthub/go-mysql-server/sql/encodings"
-	"github.com/dolthub/go-mysql-server/sql/expression"
-	"github.com/dolthub/go-mysql-server/sql/expression/function"
-	"github.com/dolthub/go-mysql-server/sql/expression/function/aggregation"
-	"github.com/dolthub/go-mysql-server/sql/plan"
-	"github.com/dolthub/go-mysql-server/sql/transform"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/binlogreplication"
+	"github.com/xiazemin/go-mysql-server/sql/encodings"
+	"github.com/xiazemin/go-mysql-server/sql/expression"
+	"github.com/xiazemin/go-mysql-server/sql/expression/function"
+	"github.com/xiazemin/go-mysql-server/sql/expression/function/aggregation"
+	"github.com/xiazemin/go-mysql-server/sql/plan"
+	"github.com/xiazemin/go-mysql-server/sql/transform"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 var (

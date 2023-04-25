@@ -19,12 +19,12 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dolthub/go-mysql-server/memory"
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/expression"
-	"github.com/dolthub/go-mysql-server/sql/expression/function/aggregation/window"
-	"github.com/dolthub/go-mysql-server/sql/plan"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/memory"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/expression"
+	"github.com/xiazemin/go-mysql-server/sql/expression/function/aggregation/window"
+	"github.com/xiazemin/go-mysql-server/sql/plan"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 func TestPushdownSortProject(t *testing.T) {

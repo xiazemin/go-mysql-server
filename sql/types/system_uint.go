@@ -22,7 +22,7 @@ import (
 	"github.com/dolthub/vitess/go/vt/proto/query"
 	"github.com/shopspring/decimal"
 
-	"github.com/dolthub/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql"
 )
 
 var systemUintValueType = reflect.TypeOf(uint64(0))

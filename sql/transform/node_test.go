@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dolthub/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql"
 
 	"github.com/stretchr/testify/require"
 )

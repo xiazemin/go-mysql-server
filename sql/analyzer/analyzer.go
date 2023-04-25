@@ -25,10 +25,10 @@ import (
 	"go.opentelemetry.io/otel/attribute"
 	"gopkg.in/src-d/go-errors.v1"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/binlogreplication"
-	"github.com/dolthub/go-mysql-server/sql/rowexec"
-	"github.com/dolthub/go-mysql-server/sql/transform"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/binlogreplication"
+	"github.com/xiazemin/go-mysql-server/sql/rowexec"
+	"github.com/xiazemin/go-mysql-server/sql/transform"
 )
 
 const debugAnalyzerKey = "DEBUG_ANALYZER"

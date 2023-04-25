@@ -54,8 +54,8 @@ func (g *MemoGen) genImport() {
 	fmt.Fprintf(g.w, "import (\n")
 	fmt.Fprintf(g.w, "  \"fmt\"\n")
 	fmt.Fprintf(g.w, "  \"strings\"\n")
-	fmt.Fprintf(g.w, "  \"github.com/dolthub/go-mysql-server/sql\"\n")
-	fmt.Fprintf(g.w, "  \"github.com/dolthub/go-mysql-server/sql/plan\"\n")
+	fmt.Fprintf(g.w, "  \"github.com/xiazemin/go-mysql-server/sql\"\n")
+	fmt.Fprintf(g.w, "  \"github.com/xiazemin/go-mysql-server/sql/plan\"\n")
 	fmt.Fprintf(g.w, ")\n\n")
 }
 

@@ -17,7 +17,7 @@ package sql
 import (
 	"strings"
 
-	"github.com/dolthub/go-mysql-server/sql/encodings"
+	"github.com/xiazemin/go-mysql-server/sql/encodings"
 )
 
 // CharacterSet represents the character set of a string.

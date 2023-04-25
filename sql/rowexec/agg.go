@@ -20,8 +20,8 @@ import (
 
 	"github.com/cespare/xxhash"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/expression/function/aggregation"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/expression/function/aggregation"
 )
 
 type groupByIter struct {

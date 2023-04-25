@@ -19,10 +19,10 @@ import (
 	"io"
 	"sync"
 
-	"github.com/dolthub/go-mysql-server/sql/transform"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql/transform"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 
-	"github.com/dolthub/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql"
 )
 
 // Subquery is as an expression whose value is derived by executing a subquery. It must be executed for every row in

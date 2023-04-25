@@ -20,10 +20,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	sqle "github.com/dolthub/go-mysql-server"
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/mysql_db"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	sqle "github.com/xiazemin/go-mysql-server"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/mysql_db"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 // wrapInTransaction runs the function given surrounded in a transaction. If the db provided doesn't implement

@@ -19,10 +19,10 @@ import (
 
 	"gopkg.in/src-d/go-errors.v1"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/analyzer/analyzererrors"
-	"github.com/dolthub/go-mysql-server/sql/plan"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/analyzer/analyzererrors"
+	"github.com/xiazemin/go-mysql-server/sql/plan"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 type ScriptTest struct {
@@ -1497,7 +1497,7 @@ var ScriptTests = []ScriptTest{
 		},
 	},
 	{
-		Name: "Issue #499", // https://github.com/dolthub/go-mysql-server/issues/499
+		Name: "Issue #499", // https://github.com/xiazemin/go-mysql-server/issues/499
 		SetUpScript: []string{
 			"set time_zone = '+0:00';",
 			"CREATE TABLE test (time TIMESTAMP, value DOUBLE);",

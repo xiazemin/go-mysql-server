@@ -17,7 +17,7 @@ package mysqlshim
 import (
 	"io"
 
-	"github.com/dolthub/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql"
 )
 
 // tablePartitionIter is used as a sql.PartitionIter.

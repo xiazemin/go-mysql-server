@@ -7,8 +7,8 @@ import (
 
 	ast "github.com/dolthub/vitess/go/vt/sqlparser"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/plan"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/plan"
 )
 
 func NewFrame(ctx *sql.Context, f *ast.Frame) (sql.WindowFrame, error) {

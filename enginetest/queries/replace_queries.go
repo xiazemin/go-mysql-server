@@ -17,8 +17,8 @@ package queries
 import (
 	"math"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 // TODO: none of these tests insert into tables without primary key columns, which have different semantics for

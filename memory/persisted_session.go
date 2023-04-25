@@ -15,7 +15,7 @@
 package memory
 
 import (
-	"github.com/dolthub/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql"
 )
 
 type GlobalsMap = map[string]interface{}

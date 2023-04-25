@@ -29,9 +29,9 @@ import (
 	"github.com/gocraft/dbr/v2"
 	"github.com/sirupsen/logrus"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/parse"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/parse"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 )
 
 type MySqlProxy struct {

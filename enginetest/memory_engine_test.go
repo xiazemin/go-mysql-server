@@ -19,16 +19,16 @@ import (
 	"log"
 	"testing"
 
-	"github.com/dolthub/go-mysql-server/enginetest"
-	"github.com/dolthub/go-mysql-server/enginetest/queries"
-	"github.com/dolthub/go-mysql-server/enginetest/scriptgen/setup"
-	"github.com/dolthub/go-mysql-server/memory"
-	"github.com/dolthub/go-mysql-server/server"
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/expression"
-	"github.com/dolthub/go-mysql-server/sql/types"
+	"github.com/xiazemin/go-mysql-server/enginetest"
+	"github.com/xiazemin/go-mysql-server/enginetest/queries"
+	"github.com/xiazemin/go-mysql-server/enginetest/scriptgen/setup"
+	"github.com/xiazemin/go-mysql-server/memory"
+	"github.com/xiazemin/go-mysql-server/server"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/expression"
+	"github.com/xiazemin/go-mysql-server/sql/types"
 
-	_ "github.com/dolthub/go-mysql-server/sql/variables"
+	_ "github.com/xiazemin/go-mysql-server/sql/variables"
 )
 
 // This file is for validating both the engine itself and the in-memory database implementation in the memory package.

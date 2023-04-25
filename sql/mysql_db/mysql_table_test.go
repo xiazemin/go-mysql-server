@@ -20,10 +20,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/in_mem_table"
-	"github.com/dolthub/go-mysql-server/sql/types"
-	_ "github.com/dolthub/go-mysql-server/sql/variables"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/in_mem_table"
+	"github.com/xiazemin/go-mysql-server/sql/types"
+	_ "github.com/xiazemin/go-mysql-server/sql/variables"
 )
 
 func TestGrantTableData(t *testing.T) {

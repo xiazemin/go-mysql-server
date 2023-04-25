@@ -19,8 +19,8 @@ import (
 	"io"
 	"sort"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/expression"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/expression"
 )
 
 var ErrNoPartitions = errors.New("no partitions")

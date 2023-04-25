@@ -1,4 +1,4 @@
-module github.com/dolthub/go-mysql-server
+module github.com/xiazemin/go-mysql-server
 
 require (
 	github.com/cespare/xxhash v1.1.0

@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/dolthub/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql"
 )
 
 // NewHashLookup returns a node that performs an indexed hash lookup

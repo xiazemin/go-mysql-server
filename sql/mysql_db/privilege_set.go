@@ -18,7 +18,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dolthub/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql"
 )
 
 // PrivilegeSet is a set containing privileges. Due to the nested sets potentially returning empty sets, this also acts

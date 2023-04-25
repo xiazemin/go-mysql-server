@@ -20,7 +20,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/dolthub/go-mysql-server/driver"
+	"github.com/xiazemin/go-mysql-server/driver"
 )
 
 func main() {

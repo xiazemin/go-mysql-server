@@ -27,7 +27,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/dolthub/go-mysql-server/enginetest/scriptgen/setup"
+	"github.com/xiazemin/go-mysql-server/enginetest/scriptgen/setup"
 )
 
 var (

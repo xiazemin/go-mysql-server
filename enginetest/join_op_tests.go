@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dolthub/go-mysql-server/enginetest/scriptgen/setup"
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/analyzer"
+	"github.com/xiazemin/go-mysql-server/enginetest/scriptgen/setup"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/analyzer"
 )
 
 type JoinOpTests struct {

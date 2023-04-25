@@ -14,7 +14,7 @@
 
 package spatial
 
-import "github.com/dolthub/go-mysql-server/sql/types"
+import "github.com/xiazemin/go-mysql-server/sql/types"
 
 type SpatialRef struct {
 	Name          string

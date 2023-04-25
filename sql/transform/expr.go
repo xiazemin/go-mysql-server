@@ -17,8 +17,8 @@ package transform
 import (
 	"errors"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/expression"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/expression"
 )
 
 // Expr applies a transformation function to the given expression

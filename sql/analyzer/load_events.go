@@ -15,11 +15,11 @@
 package analyzer
 
 import (
-	"github.com/dolthub/go-mysql-server/sql/transform"
+	"github.com/xiazemin/go-mysql-server/sql/transform"
 
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/parse"
-	"github.com/dolthub/go-mysql-server/sql/plan"
+	"github.com/xiazemin/go-mysql-server/sql"
+	"github.com/xiazemin/go-mysql-server/sql/parse"
+	"github.com/xiazemin/go-mysql-server/sql/plan"
 )
 
 // loadEvents loads any events that are required for a plan node to operate properly (except for nodes dealing with
