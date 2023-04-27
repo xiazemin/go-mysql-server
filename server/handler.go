@@ -33,6 +33,7 @@ import (
 	"go.opentelemetry.io/otel/trace"
 	"gopkg.in/src-d/go-errors.v1"
 
+	"github.com/davecgh/go-spew/spew"
 	sqle "github.com/xiazemin/go-mysql-server"
 	"github.com/xiazemin/go-mysql-server/internal/sockstate"
 	"github.com/xiazemin/go-mysql-server/sql"
@@ -357,6 +358,7 @@ func (h *Handler) doQuery(
 	}()
 
 	schema, rowIter, err := h.e.QueryNodeWithBindings(ctx, query, parsed, sqlBindings)
+	spew.Dump("server/handler.go:360 QueryNodeWithBindings", ctx, query, parsed, sqlBindings, schema, rowIter, err)
 	if err != nil {
 		ctx.GetLogger().WithError(err).Warn("error running query")
 		return remainder, err
