@@ -64,6 +64,8 @@ func TestSetCompare(t *testing.T) {
 }
 
 func TestSetCompareErrors(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		vals      []string
 		collation sql.CollationID
@@ -71,7 +73,7 @@ func TestSetCompareErrors(t *testing.T) {
 		val2      interface{}
 	}{
 		{[]string{"one", "two"}, sql.Collation_Default, "three", "two"},
-		{[]string{"one", "two"}, sql.Collation_Default, time.Date(2019, 12, 12, 12, 12, 12, 0, time.UTC), []byte("one")},
+		{[]string{"one", "two"}, sql.Collation_Default, time.Date(2019, 12, 12, 12, 12, 12, 0, loc), []byte("one")},
 	}
 
 	for _, test := range tests {
@@ -142,6 +144,8 @@ func TestSetCreateTooLarge(t *testing.T) {
 }
 
 func TestSetConvert(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		vals        []string
 		collation   sql.CollationID
@@ -181,7 +185,7 @@ func TestSetConvert(t *testing.T) {
 		{[]string{"one", "two"}, sql.Collation_Default, "one,two,three", nil, true},
 		{[]string{"a", "b", "c"}, sql.Collation_binary, "b,c  ,a", nil, true},
 		{[]string{"one", "two"}, sql.Collation_binary, "ONE", nil, true},
-		{[]string{"one", "two"}, sql.Collation_Default, time.Date(2019, 12, 12, 12, 12, 12, 0, time.UTC), nil, true},
+		{[]string{"one", "two"}, sql.Collation_Default, time.Date(2019, 12, 12, 12, 12, 12, 0, loc), nil, true},
 	}
 
 	for _, test := range tests {

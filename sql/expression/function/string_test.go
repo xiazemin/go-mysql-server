@@ -33,7 +33,9 @@ func TestAsciiFunc(t *testing.T) {
 	tf.AddSucceeding(nil, nil)
 	tf.AddSucceeding(uint8(115), "string")
 	tf.AddSucceeding(uint8(49), true)
-	tf.AddSucceeding(uint8(50), time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC))
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
+	tf.AddSucceeding(uint8(50), time.Date(2020, 1, 1, 0, 0, 0, 0, loc))
 	tf.AddSignedVariations(uint8(48), 0)
 	tf.AddUnsignedVariations(uint8(48), 0)
 	tf.AddFloatVariations(uint8(54), 6.0)
@@ -41,6 +43,8 @@ func TestAsciiFunc(t *testing.T) {
 }
 
 func TestHexFunc(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	f := sql.Function1{Name: "hex", Fn: NewHex}
 	tf := NewTestFactory(f.Fn)
 	tf.AddSucceeding(nil, nil)
@@ -56,10 +60,10 @@ func TestHexFunc(t *testing.T) {
 	tf.AddSignedVariations("FFFFFFFFFFFFFE00", -512)
 	tf.AddFloatVariations("FFFFFFFFFFFFFFFF", -0.5)
 	tf.AddFloatVariations("FFFFFFFFFFFFFFFF", -1.4)
-	tf.AddSucceeding("323032302D30322D30342031343A31303A33322E35", time.Date(2020, 2, 4, 14, 10, 32, 500000000, time.UTC))
-	tf.AddSucceeding("323032302D30322D30342031343A31303A33322E30303035", time.Date(2020, 2, 4, 14, 10, 32, 500000, time.UTC))
-	tf.AddSucceeding("323032302D30322D30342031343A31303A33322E303030303035", time.Date(2020, 2, 4, 14, 10, 32, 5000, time.UTC))
-	tf.AddSucceeding("323032302D30322D30342031343A31303A3332", time.Date(2020, 2, 4, 14, 10, 32, 500, time.UTC))
+	tf.AddSucceeding("323032302D30322D30342031343A31303A33322E35", time.Date(2020, 2, 4, 14, 10, 32, 500000000, loc))
+	tf.AddSucceeding("323032302D30322D30342031343A31303A33322E30303035", time.Date(2020, 2, 4, 14, 10, 32, 500000, loc))
+	tf.AddSucceeding("323032302D30322D30342031343A31303A33322E303030303035", time.Date(2020, 2, 4, 14, 10, 32, 5000, loc))
+	tf.AddSucceeding("323032302D30322D30342031343A31303A3332", time.Date(2020, 2, 4, 14, 10, 32, 500, loc))
 
 	tf.Test(t, nil, nil)
 }
@@ -111,12 +115,14 @@ func TestHexRoundTrip(t *testing.T) {
 }
 
 func TestBinFunc(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	f := sql.Function1{Name: "bin", Fn: NewBin}
 	tf := NewTestFactory(f.Fn)
 	tf.AddSucceeding(nil, nil)
 	tf.AddSucceeding("1100", "12")
 	tf.AddSucceeding("0", "TEST")
-	tf.AddSucceeding("11111100100", time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC))
+	tf.AddSucceeding("11111100100", time.Date(2020, 1, 1, 0, 0, 0, 0, loc))
 	tf.AddSignedVariations("1100", 12)
 	tf.AddUnsignedVariations("1100", 12)
 	tf.AddFloatVariations("1100", 12.5)

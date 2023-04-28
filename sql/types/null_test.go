@@ -43,6 +43,8 @@ func TestNullCompare(t *testing.T) {
 }
 
 func TestNullConvert(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		val         interface{}
 		expectedVal interface{}
@@ -63,7 +65,7 @@ func TestNullConvert(t *testing.T) {
 		{float64(0), nil, true},
 		{"stuff", nil, true},
 		{[]byte{0}, nil, true},
-		{time.Date(2019, 12, 12, 12, 12, 12, 0, time.UTC), nil, true},
+		{time.Date(2019, 12, 12, 12, 12, 12, 0, loc), nil, true},
 	}
 
 	for _, test := range tests {

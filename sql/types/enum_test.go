@@ -111,6 +111,8 @@ func TestEnumCreateTooLarge(t *testing.T) {
 }
 
 func TestEnumConvert(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		vals        []string
 		collation   sql.CollationID
@@ -139,7 +141,7 @@ func TestEnumConvert(t *testing.T) {
 		{[]string{"one", "two"}, sql.Collation_Default, 3, nil, true},
 		{[]string{"one", "two"}, sql.Collation_Default, 0, nil, true},
 		{[]string{"one", "two"}, sql.Collation_Default, "three", nil, true},
-		{[]string{"one", "two"}, sql.Collation_Default, time.Date(2019, 12, 12, 12, 12, 12, 0, time.UTC), nil, true},
+		{[]string{"one", "two"}, sql.Collation_Default, time.Date(2019, 12, 12, 12, 12, 12, 0, loc), nil, true},
 	}
 
 	for _, test := range tests {

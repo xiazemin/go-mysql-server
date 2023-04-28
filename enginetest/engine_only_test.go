@@ -1024,9 +1024,10 @@ func TestTimestampBindingsCanBeCompared(t *testing.T) {
 
 	_, err := db.Exec("CREATE TABLE mytable (t TIMESTAMP)")
 	require.NoError(t, err)
-
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	// We'll insert both of these timestamps and then try and filter them.
-	t0 := time.Date(2022, 01, 01, 0, 0, 0, 0, time.UTC)
+	t0 := time.Date(2022, 01, 01, 0, 0, 0, 0, loc)
 	t1 := t0.Add(1 * time.Minute)
 
 	_, err = db.Exec("INSERT INTO mytable (t) VALUES (?)", t0)

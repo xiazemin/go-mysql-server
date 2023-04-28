@@ -47,8 +47,9 @@ func TestDateAdd(t *testing.T) {
 		),
 	)
 	require.NoError(err)
-
-	expected := time.Date(2018, time.May, 3, 0, 0, 0, 0, time.UTC)
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
+	expected := time.Date(2018, time.May, 3, 0, 0, 0, 0, loc)
 
 	result, err := f.Eval(ctx, sql.Row{"2018-05-02"})
 	require.NoError(err)
@@ -89,8 +90,9 @@ func TestDateSub(t *testing.T) {
 		),
 	)
 	require.NoError(err)
-
-	expected := time.Date(2018, time.May, 1, 0, 0, 0, 0, time.UTC)
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
+	expected := time.Date(2018, time.May, 1, 0, 0, 0, 0, loc)
 
 	result, err := f.Eval(ctx, sql.Row{"2018-05-02"})
 	require.NoError(err)
@@ -146,9 +148,11 @@ func TestUnixTimestamp(t *testing.T) {
 	require.Equal(expected, result)
 	require.Equal(uint16(0), ctx.WarningCount())
 
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	ut, err = NewUnixTimestamp(expression.NewLiteral("2018-05-02", types.LongText))
 	require.NoError(err)
-	expected = float64(time.Date(2018, 5, 2, 0, 0, 0, 0, time.UTC).Unix())
+	expected = float64(time.Date(2018, 5, 2, 0, 0, 0, 0, loc).Unix())
 	result, err = ut.Eval(ctx, nil)
 	require.NoError(err)
 	require.Equal(expected, result)

@@ -25,6 +25,8 @@ import (
 )
 
 func TestYearCompare(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		val1        interface{}
 		val2        interface{}
@@ -38,7 +40,7 @@ func TestYearCompare(t *testing.T) {
 		{0, "0", -1},
 		{2050, 50, 0},
 		{"2050", "2050", 0},
-		{10, time.Date(2010, 1, 2, 3, 4, 5, 0, time.UTC), 0},
+		{10, time.Date(2010, 1, 2, 3, 4, 5, 0, loc), 0},
 	}
 
 	for _, test := range tests {
@@ -51,6 +53,8 @@ func TestYearCompare(t *testing.T) {
 }
 
 func TestYearConvert(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		val         interface{}
 		expectedVal interface{}
@@ -78,7 +82,7 @@ func TestYearConvert(t *testing.T) {
 		{"2000", int16(2000), false},
 		{"2100", int16(2100), false},
 		{"2155", int16(2155), false},
-		{time.Date(2010, 1, 2, 3, 4, 5, 0, time.UTC), int16(2010), false},
+		{time.Date(2010, 1, 2, 3, 4, 5, 0, loc), int16(2010), false},
 
 		{100, nil, true},
 		{"100", nil, true},

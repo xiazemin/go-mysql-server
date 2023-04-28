@@ -34,7 +34,8 @@ func TestTimeDiff(t *testing.T) {
 		}
 		return res
 	}
-
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	ctx := sql.NewEmptyContext()
 	testCases := []struct {
 		name     string
@@ -122,7 +123,7 @@ func TestTimeDiff(t *testing.T) {
 		},
 		{
 			"datetime string mix types",
-			expression.NewLiteral(time.Date(2008, time.December, 29, 0, 0, 0, 0, time.UTC), types.Datetime),
+			expression.NewLiteral(time.Date(2008, time.December, 29, 0, 0, 0, 0, loc), types.Datetime),
 			expression.NewLiteral("2008-12-30 00:00:00", types.Text),
 			toTimespan("-24:00:00"),
 			false,

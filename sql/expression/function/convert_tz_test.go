@@ -27,6 +27,8 @@ import (
 )
 
 func TestConvertTz(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		name           string
 		datetime       interface{}
@@ -39,49 +41,49 @@ func TestConvertTz(t *testing.T) {
 			datetime:       "2004-01-01 12:00:00",
 			fromTimeZone:   "GMT",
 			toTimeZone:     "MET",
-			expectedResult: time.Date(2004, 1, 1, 13, 0, 0, 0, time.UTC),
+			expectedResult: time.Date(2004, 1, 1, 13, 0, 0, 0, loc),
 		},
 		{
 			name:           "Simple timezone conversion as datetime object",
-			datetime:       time.Date(2004, 1, 1, 12, 0, 0, 0, time.UTC),
+			datetime:       time.Date(2004, 1, 1, 12, 0, 0, 0, loc),
 			fromTimeZone:   "GMT",
 			toTimeZone:     "MET",
-			expectedResult: time.Date(2004, 1, 1, 13, 0, 0, 0, time.UTC),
+			expectedResult: time.Date(2004, 1, 1, 13, 0, 0, 0, loc),
 		},
 		{
 			name:           "Locations going backwards",
 			datetime:       "2004-01-01 12:00:00",
 			fromTimeZone:   "US/Eastern",
 			toTimeZone:     "US/Central",
-			expectedResult: time.Date(2004, 1, 1, 11, 0, 0, 0, time.UTC),
+			expectedResult: time.Date(2004, 1, 1, 11, 0, 0, 0, loc),
 		},
 		{
 			name:           "Locations going forward",
 			datetime:       "2004-01-01 12:00:00",
 			fromTimeZone:   "US/Central",
 			toTimeZone:     "US/Eastern",
-			expectedResult: time.Date(2004, 1, 1, 13, 0, 0, 0, time.UTC),
+			expectedResult: time.Date(2004, 1, 1, 13, 0, 0, 0, loc),
 		},
 		{
 			name:           "Simple time shift",
 			datetime:       "2004-01-01 12:00:00",
 			fromTimeZone:   "+01:00",
 			toTimeZone:     "+10:00",
-			expectedResult: time.Date(2004, 1, 1, 21, 0, 0, 0, time.UTC),
+			expectedResult: time.Date(2004, 1, 1, 21, 0, 0, 0, loc),
 		},
 		{
 			name:           "Simple time shift with minutes",
 			datetime:       "2004-01-01 12:00:00",
 			fromTimeZone:   "+01:00",
 			toTimeZone:     "+10:11",
-			expectedResult: time.Date(2004, 1, 1, 21, 11, 0, 0, time.UTC),
+			expectedResult: time.Date(2004, 1, 1, 21, 11, 0, 0, loc),
 		},
 		{
 			name:           "Different Time Format",
 			datetime:       "20100603121212",
 			fromTimeZone:   "+01:00",
 			toTimeZone:     "+10:00",
-			expectedResult: time.Date(2010, 6, 3, 21, 12, 12, 0, time.UTC),
+			expectedResult: time.Date(2010, 6, 3, 21, 12, 12, 0, loc),
 		},
 		{
 			name:           "Bad timezone conversion",
@@ -109,35 +111,35 @@ func TestConvertTz(t *testing.T) {
 			datetime:       "2004-01-02 12:00:00",
 			fromTimeZone:   "-01:00",
 			toTimeZone:     "+10:11",
-			expectedResult: time.Date(2004, 1, 2, 23, 11, 0, 0, time.UTC),
+			expectedResult: time.Date(2004, 1, 2, 23, 11, 0, 0, loc),
 		},
 		{
 			name:           "Test With negatives and datetime type",
-			datetime:       time.Date(2010, 6, 3, 12, 12, 12, 0, time.UTC),
+			datetime:       time.Date(2010, 6, 3, 12, 12, 12, 0, loc),
 			fromTimeZone:   "-01:00",
 			toTimeZone:     "+10:00",
-			expectedResult: time.Date(2010, 6, 3, 23, 12, 12, 0, time.UTC),
+			expectedResult: time.Date(2010, 6, 3, 23, 12, 12, 0, loc),
 		},
 		{
 			name:           "No symbol on toTimeZone errors",
-			datetime:       time.Date(2010, 6, 3, 12, 12, 12, 0, time.UTC),
+			datetime:       time.Date(2010, 6, 3, 12, 12, 12, 0, loc),
 			fromTimeZone:   "-01:00",
 			toTimeZone:     "10:00",
 			expectedResult: nil,
 		},
 		{
 			name:           "Test fromTimeZone value: SYSTEM",
-			datetime:       time.Date(2010, 6, 3, 12, 12, 12, 0, time.UTC),
+			datetime:       time.Date(2010, 6, 3, 12, 12, 12, 0, loc),
 			fromTimeZone:   "SYSTEM",
 			toTimeZone:     "+01:00",
-			expectedResult: time.Date(2010, 6, 3, 13, 12, 12, 0, time.UTC),
+			expectedResult: time.Date(2010, 6, 3, 13, 12, 12, 0, loc),
 		},
 		{
 			name:           "Test toTimeZone value: SYSTEM",
-			datetime:       time.Date(2010, 6, 3, 12, 12, 12, 0, time.UTC),
+			datetime:       time.Date(2010, 6, 3, 12, 12, 12, 0, loc),
 			fromTimeZone:   "+01:00",
 			toTimeZone:     "SYSTEM",
-			expectedResult: time.Date(2010, 6, 3, 11, 12, 12, 0, time.UTC),
+			expectedResult: time.Date(2010, 6, 3, 11, 12, 12, 0, loc),
 		},
 	}
 

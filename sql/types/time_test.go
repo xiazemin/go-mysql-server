@@ -79,7 +79,8 @@ func TestTimeConvert(t *testing.T) {
 		}
 		return d
 	}
-
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		val         interface{}
 		expectedVal interface{}
@@ -130,7 +131,7 @@ func TestTimeConvert(t *testing.T) {
 		{"850:00:00", "838:59:59", false},
 		{"-838:59:59.1", "-838:59:59", false},
 		{"838:59:59.1", "838:59:59", false},
-		{time.Date(2019, 12, 12, 12, 12, 12, 0, time.UTC), "12:12:12", false},
+		{time.Date(2019, 12, 12, 12, 12, 12, 0, loc), "12:12:12", false},
 
 		{1060, nil, true},
 		{60, nil, true},

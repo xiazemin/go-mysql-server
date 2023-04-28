@@ -522,6 +522,8 @@ func TestDate(t *testing.T) {
 }
 
 func TestCurrentTimestamp(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	f, _ := NewCurrTimestamp(expression.NewGetField(0, types.LongText, "foo", false))
 	date := time.Date(
 		2021,     // year
@@ -531,7 +533,7 @@ func TestCurrentTimestamp(t *testing.T) {
 		30,       // min
 		15,       // sec
 		12345678, // nsec
-		time.UTC, // location (UTC)
+		loc,      // location (UTC)
 	)
 
 	testCases := []struct {
@@ -541,15 +543,15 @@ func TestCurrentTimestamp(t *testing.T) {
 		err      bool
 	}{
 		{"null date", sql.NewRow(nil), nil, true},
-		{"different int type", sql.NewRow(int8(0)), time.Date(2021, 1, 1, 8, 30, 15, 0, time.UTC), false},
+		{"different int type", sql.NewRow(int8(0)), time.Date(2021, 1, 1, 8, 30, 15, 0, loc), false},
 		{"precision of -1", sql.NewRow(-1), nil, true},
-		{"precision of 0", sql.NewRow(0), time.Date(2021, 1, 1, 8, 30, 15, 0, time.UTC), false},
-		{"precision of 1 trailing 0s are trimmed", sql.NewRow(1), time.Date(2021, 1, 1, 8, 30, 15, 0, time.UTC), false},
-		{"precision of 2", sql.NewRow(2), time.Date(2021, 1, 1, 8, 30, 15, 10000000, time.UTC), false},
-		{"precision of 3", sql.NewRow(3), time.Date(2021, 1, 1, 8, 30, 15, 12000000, time.UTC), false},
-		{"precision of 4", sql.NewRow(4), time.Date(2021, 1, 1, 8, 30, 15, 12300000, time.UTC), false},
-		{"precision of 5", sql.NewRow(5), time.Date(2021, 1, 1, 8, 30, 15, 12340000, time.UTC), false},
-		{"precision of 6", sql.NewRow(6), time.Date(2021, 1, 1, 8, 30, 15, 12345000, time.UTC), false},
+		{"precision of 0", sql.NewRow(0), time.Date(2021, 1, 1, 8, 30, 15, 0, loc), false},
+		{"precision of 1 trailing 0s are trimmed", sql.NewRow(1), time.Date(2021, 1, 1, 8, 30, 15, 0, loc), false},
+		{"precision of 2", sql.NewRow(2), time.Date(2021, 1, 1, 8, 30, 15, 10000000, loc), false},
+		{"precision of 3", sql.NewRow(3), time.Date(2021, 1, 1, 8, 30, 15, 12000000, loc), false},
+		{"precision of 4", sql.NewRow(4), time.Date(2021, 1, 1, 8, 30, 15, 12300000, loc), false},
+		{"precision of 5", sql.NewRow(5), time.Date(2021, 1, 1, 8, 30, 15, 12340000, loc), false},
+		{"precision of 6", sql.NewRow(6), time.Date(2021, 1, 1, 8, 30, 15, 12345000, loc), false},
 		{"precision of 7 which is too high", sql.NewRow(7), nil, true},
 		{"incorrect type", sql.NewRow("notanint"), nil, true},
 	}

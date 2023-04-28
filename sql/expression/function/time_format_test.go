@@ -25,7 +25,9 @@ import (
 )
 
 func TestTimeFormatting(t *testing.T) {
-	dt := time.Date(2020, 2, 3, 4, 5, 6, 7000, time.UTC)
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
+	dt := time.Date(2020, 2, 3, 4, 5, 6, 7000, loc)
 	tests := []struct {
 		formatStr string
 		expected  string

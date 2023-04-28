@@ -88,6 +88,8 @@ func TestBitCreate(t *testing.T) {
 }
 
 func TestBitConvert(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		typ         sql.Type
 		val         interface{}
@@ -120,7 +122,7 @@ func TestBitConvert(t *testing.T) {
 		{MustCreateBitType(60), "12341234", nil, true},
 		{MustCreateBitType(64), "123412341", nil, true},
 		{MustCreateBitType(22), []byte{36, 107, 48, 38}, nil, true},
-		{MustCreateBitType(64), time.Date(2019, 12, 12, 12, 12, 12, 0, time.UTC), nil, true},
+		{MustCreateBitType(64), time.Date(2019, 12, 12, 12, 12, 12, 0, loc), nil, true},
 	}
 
 	for _, test := range tests {

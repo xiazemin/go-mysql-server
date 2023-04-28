@@ -26,6 +26,8 @@ import (
 )
 
 func TestConvert(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		name        string
 		row         sql.Row
@@ -95,7 +97,7 @@ func TestConvert(t *testing.T) {
 			row:         nil,
 			expression:  NewLiteral("2017-12-12", types.LongText),
 			castTo:      ConvertToDatetime,
-			expected:    time.Date(2017, time.December, 12, 0, 0, 0, 0, time.UTC),
+			expected:    time.Date(2017, time.December, 12, 0, 0, 0, 0, time.Local),
 			expectedErr: false,
 		},
 		{
@@ -111,7 +113,7 @@ func TestConvert(t *testing.T) {
 			row:         nil,
 			castTo:      ConvertToDate,
 			expression:  NewLiteral("2017-12-12 11:12:13", types.Int32),
-			expected:    time.Date(2017, time.December, 12, 0, 0, 0, 0, time.UTC),
+			expected:    time.Date(2017, time.December, 12, 0, 0, 0, 0, time.Local),
 			expectedErr: false,
 		},
 		{

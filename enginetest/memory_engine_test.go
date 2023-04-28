@@ -18,6 +18,7 @@ import (
 	"fmt"
 	"log"
 	"testing"
+	"time"
 
 	"github.com/dolthub/go-mysql-server/enginetest"
 	"github.com/dolthub/go-mysql-server/enginetest/queries"
@@ -57,6 +58,11 @@ var indexBehaviors = []*indexBehaviorTestParams{
 var parallelVals = []int{
 	1,
 	2,
+}
+
+func TestMain(m *testing.M) {
+	time.Local, _ = time.LoadLocation("UTC")
+	m.Run()
 }
 
 // TestQueries tests the given queries on an engine under a variety of circumstances:

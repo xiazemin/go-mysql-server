@@ -63,7 +63,7 @@ func TestPlus(t *testing.T) {
 func TestPlusInterval(t *testing.T) {
 	require := require.New(t)
 
-	expected := time.Date(2018, time.May, 2, 0, 0, 0, 0, time.UTC)
+	expected := time.Date(2018, time.May, 2, 0, 0, 0, 0, time.Local)
 	op := NewPlus(
 		NewLiteral("2018-05-01", types.LongText),
 		NewInterval(NewLiteral(int64(1), types.Int64), "DAY"),
@@ -119,7 +119,7 @@ func TestMinus(t *testing.T) {
 func TestMinusInterval(t *testing.T) {
 	require := require.New(t)
 
-	expected := time.Date(2018, time.May, 1, 0, 0, 0, 0, time.UTC)
+	expected := time.Date(2018, time.May, 1, 0, 0, 0, 0, time.Local)
 	op := NewMinus(
 		NewLiteral("2018-05-02", types.LongText),
 		NewInterval(NewLiteral(int64(1), types.Int64), "DAY"),

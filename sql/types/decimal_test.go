@@ -276,6 +276,8 @@ func TestCreateColumnDecimal(t *testing.T) {
 }
 
 func TestDecimalConvert(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		precision   uint8
 		scale       uint8
@@ -333,7 +335,7 @@ func TestDecimalConvert(t *testing.T) {
 		{65, 12, "99999999999999999999999999999999999999999999999999999.9999999999999", "", true},
 
 		{20, 10, []byte{32}, nil, true},
-		{20, 10, time.Date(2019, 12, 12, 12, 12, 12, 0, time.UTC), nil, true},
+		{20, 10, time.Date(2019, 12, 12, 12, 12, 12, 0, loc), nil, true},
 	}
 
 	for _, test := range tests {

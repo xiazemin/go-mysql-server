@@ -825,7 +825,8 @@ func TestBindingsToExprs(t *testing.T) {
 		Result   map[string]sql.Expression
 		Err      bool
 	}
-
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	cases := []tc{
 		{
 			"Empty",
@@ -916,10 +917,10 @@ func TestBindingsToExprs(t *testing.T) {
 				"bin":       expression.NewLiteral([]byte{byte(0xC0), byte(0x00), byte(0x10)}, types.MustCreateBinary(query.Type_VARBINARY, int64(3))),
 				"text":      expression.NewLiteral("four score and seven years ago...", types.MustCreateStringWithDefaults(query.Type_TEXT, 33)),
 				"bit":       expression.NewLiteral(uint64(0x0f), types.MustCreateBitType(types.BitTypeMaxBits)),
-				"date":      expression.NewLiteral(time.Date(2020, time.Month(10), 20, 0, 0, 0, 0, time.UTC), types.Date),
+				"date":      expression.NewLiteral(time.Date(2020, time.Month(10), 20, 0, 0, 0, 0, loc), types.Date),
 				"year":      expression.NewLiteral(int16(2020), types.Year),
-				"datetime":  expression.NewLiteral(time.Date(2020, time.Month(10), 20, 12, 0, 0, 0, time.UTC), types.Datetime),
-				"timestamp": expression.NewLiteral(time.Date(2020, time.Month(10), 20, 12, 0, 0, 0, time.UTC), types.Timestamp),
+				"datetime":  expression.NewLiteral(time.Date(2020, time.Month(10), 20, 12, 0, 0, 0, loc), types.Datetime),
+				"timestamp": expression.NewLiteral(time.Date(2020, time.Month(10), 20, 12, 0, 0, 0, loc), types.Timestamp),
 			},
 			false,
 		},

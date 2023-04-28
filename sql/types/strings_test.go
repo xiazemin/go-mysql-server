@@ -299,6 +299,8 @@ func TestStringCreateStringInvalidBaseTypes(t *testing.T) {
 }
 
 func TestStringConvert(t *testing.T) {
+	loc, _ := time.LoadLocation("UTC")
+	time.Local = loc
 	tests := []struct {
 		typ         sql.StringType
 		val         interface{}
@@ -332,7 +334,7 @@ func TestStringConvert(t *testing.T) {
 		{MustCreateStringWithDefaults(sqltypes.Text, 4), float32(9.875), "9.875", false},
 		{MustCreateStringWithDefaults(sqltypes.VarChar, 7), float64(11583.5), "11583.5", false},
 		{MustCreateStringWithDefaults(sqltypes.Char, 4), []byte("abcd"), "abcd", false},
-		{MustCreateStringWithDefaults(sqltypes.VarChar, 40), time.Date(2019, 12, 12, 12, 12, 12, 0, time.UTC), "2019-12-12 12:12:12", false},
+		{MustCreateStringWithDefaults(sqltypes.VarChar, 40), time.Date(2019, 12, 12, 12, 12, 12, 0, loc), "2019-12-12 12:12:12", false},
 
 		{MustCreateBinary(sqltypes.Binary, 3), "abcd", nil, true},
 		{MustCreateBinary(sqltypes.Blob, 3), strings.Repeat("0", TinyTextBlobMax+1), nil, true},
