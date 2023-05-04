@@ -15,13 +15,8 @@
 package mysql_db
 
 import (
-	"os"
 	"testing"
 )
-
-func init() {
-	os.Setenv("TZ", "UTC")
-}
 
 func TestReplicaSourceInfoTableSchema(t *testing.T) {
 	// Each column has a constant index that it expects to match, therefore if a column's position is updated and the
